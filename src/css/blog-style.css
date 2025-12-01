@@ -1,0 +1,85 @@
+.blog-page {
+    /* Espacio superior para compensar el header fijo */
+    padding-top: 100px; 
+    background-color: #000;
+}
+
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: #ccc;
+}
+
+.blog-container > h1 {
+    font-size: 3rem;
+    color: #f1c40f;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+/* Estilo para cada artículo completo */
+.blog-post-full {
+    /* Propiedad clave para que el ancla (#) no quede oculta debajo del header fijo */
+    scroll-margin-top: 120px; 
+}
+
+.blog-post-full h2 {
+    font-size: 2.2rem;
+    color: #f1c40f;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.blog-post-full .meta {
+    font-style: italic;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.blog-post-full img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.blog-post-full h3 {
+    font-size: 1.6rem;
+    color: #f1c40f;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-post-full p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Línea divisora entre artículos */
+.post-divider {
+    border: 0;
+    height: 1px;
+    background: #333;
+    margin: 80px 0;
+}
+
+/* Estilo para el botón de "Volver" */
+.btn-back {
+    display: block;
+    width: fit-content;
+    margin: 60px auto 0 auto;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    background-color: #f1c40f;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #fff;
+}

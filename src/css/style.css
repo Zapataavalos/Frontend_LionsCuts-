@@ -1,0 +1,616 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { scroll-behavior: smooth; }
+body {
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+color: #fff;
+background-color: #000000;
+}
+header {
+position: fixed;
+top: 0; width: 100%;
+background: rgba(0,0,0,0.8);
+z-index: 1000;
+transition: background 0.3s;
+}
+
+/* --- SOLUCIÓN PARA LA BARRA DE NAVEGACIÓN (3 Columnas) --- */
+.nav-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+display: grid;
+grid-template-columns: auto 1fr auto;
+align-items: center;
+gap: 20px;
+}
+
+/* --- Columna Izquierda (Logo) --- */
+.nav-left { }
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+color: #f1c40f;
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+/* --- Columna Central (Menú) --- */
+.nav-center {
+/* Eliminamos justify-self: center; */
+}
+.nav-center ul {
+display: flex;
+align-items: center;
+list-style: none;
+padding: 0;
+margin: 0;
+gap: 30px;
+}
+
+/* --- Columna Derecha (Usuario/Carrito) --- */
+.nav-right {
+justify-self: end;
+}
+.nav-right ul {
+display: flex;
+align-items: center;
+list-style: none;
+padding: 0;
+margin: 0;
+gap: 30px;
+}
+
+#user-session-li {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-left: 0;
+}
+
+/* Estilo del botón "Acceder" (cuando está desconectado) */
+.nav-logged-out .btn-acceder {
+display: inline-block;
+padding: 10px 25px;
+background: #f1c40f;
+color: #000;
+text-decoration: none;
+font-size: 1rem;
+border-radius: 50px;
+font-weight: bold;
+transition: background 0.3s, color 0.3s;
+}
+.nav-logged-out .btn-acceder:hover {
+background: #fff;
+color: #000;
+}
+/* --- FIN DE LA SOLUCIÓN DE NAVEGACIÓN --- */
+
+
+nav a {
+color: #fff;
+text-decoration: none;
+font-size: 1rem;
+transition: color 0.3s;
+white-space: nowrap;
+}
+nav a:hover { color: #f1c40f; }
+
+/* Color para el nombre de usuario */
+#user-name-link {
+color: #f1c40f;
+font-weight: bold;
+}
+
+/* Color especial para el botón de logout */
+#logout-btn {
+color: #f1c40f;
+}
+
+/* --- REGLAS CORREGIDAS PARA ICONO Y CONTADOR DEL CARRITO (BASADO EN TU IMAGEN) --- */
+
+/* 1. El enlace que contiene el icono y el contador */
+nav a.cart-icon {
+position: relative;
+display: inline-flex;
+align-items: center;
+color: #fff; /* Color blanco para el icono */
+padding: 0;
+margin-right: 15px; /* Ajusta según sea necesario */
+}
+
+/* Aseguramos que el SVG del carrito sea blanco */
+nav a.cart-icon svg {
+stroke: #fff; /* Cambia el color del trazo del SVG a blanco */
+}
+
+/* 2. El contador (el círculo amarillo) */
+#cart-count {
+position: absolute;
+top: -8px; /* Mueve hacia arriba */
+right: -10px; /* Mueve hacia la derecha, superponiéndose */
+background: #f1c40f; /* Amarillo */
+color: #000; /* Texto negro */
+font-size: 0.8rem;
+padding: 2px 6px; /* Ajuste del tamaño del círculo */
+border-radius: 50%; /* Círculo */
+font-weight: bold;
+pointer-events: none; /* Permite hacer clic en el carrito aunque el contador esté encima */
+min-width: 18px; /* Tamaño mínimo para el círculo */
+min-height: 18px; /* Altura mínima para el círculo */
+display: flex; /* Para centrar el número */
+justify-content: center; /* Centra horizontalmente el número */
+align-items: center; /* Centra verticalmente el número */
+line-height: 1; /* Ayuda a que el texto no tenga espacio extra */
+z-index: 1; /* Asegura que esté por encima del icono */
+}
+/* --- FIN DE LAS REGLAS CORREGIDAS --- */
+
+
+/* --- ESTILO DEL HERO (IMAGEN MANEJADA POR REACT) --- */
+.hero {
+height: 100vh;
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+position: relative;
+}
+
+.hero::after {
+content: "";
+position: absolute; top:0; left:0;
+width:100%; height:100%;
+background: rgba(0,0,0,0.6);
+}
+.hero-content {
+position: relative;
+z-index: 1;
+}
+.hero-content h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+text-transform: uppercase;
+letter-spacing: 3px;
+}
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+.hero-content a.btn {
+display: inline-block;
+padding: 12px 30px;
+background: #f1c40f; color: #000;
+text-decoration: none; font-size: 1.1rem;
+border-radius: 50px;
+transition: background 0.3s, color 0.3s;
+}
+.hero-content a.btn:hover { background: #fff; color: #000; }
+section.servicios, section.barberos, section.blog, section.productos {
+padding: 80px 20px;
+background: #111;
+text-align: center;
+}
+section.barberos, section.productos { background: #000; }
+section h2 {
+font-size: 2.5rem;
+margin-bottom: 40px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+.servicios-grid, .barberos-grid, .blog-grid, .productos-grid {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+max-width: 1200px;
+margin: 0 auto;
+}
+.servicio-item, .barbero-item, .blog-item, .producto-item {
+background: #222;
+width: 320px;
+padding: 20px;
+border-radius: 8px;
+transition: transform 0.3s;
+display: flex;
+flex-direction: column;
+}
+.servicio-item:hover, .barbero-item:hover, .blog-item:hover, .producto-item:hover { transform: translateY(-10px); }
+.servicio-item img, .barbero-item img, .blog-item img, .producto-item img {
+width: 100%;
+border-radius: 8px;
+margin-bottom: 20px;
+object-fit: cover;
+height: 200px;
+}
+.servicio-item h3, .barbero-item h3, .blog-item h3, .producto-item h3 { font-size: 1.5rem; margin-bottom: 10px; color: #f1c40f; }
+.servicio-item p, .barbero-item p, .blog-item p { font-size: 1rem; color: #ccc; flex-grow: 1; }
+.barbero-item .rating {
+font-size: 1.5rem;
+color: #f1c40f;
+margin-top: 15px;
+}
+.blog-item .btn-blog {
+display: inline-block;
+margin-top: 20px;
+padding: 10px 20px;
+background: #f1c40f;
+color: #000;
+text-decoration: none;
+border-radius: 50px;
+align-self: center;
+transition: background 0.3s;
+}
+.blog-item .btn-blog:hover { background: #fff; }
+.producto-item .precio {
+font-size: 1.3rem;
+color: #fff;
+font-weight: bold;
+margin: 10px 0 20px 0;
+}
+.producto-item .btn-add-cart {
+padding: 12px 30px;
+background: #f1c40f; color: #000;
+border: none; font-size: 1.1rem;
+border-radius: 50px; cursor: pointer;
+transition: background 0.3s;
+}
+.producto-item .btn-add-cart:hover { background: #fff; }
+section.contacto {
+padding: 80px 20px;
+background: #111;
+text-align: center;
+}
+.contacto-form {
+max-width: 600px;
+margin: 0 auto;
+text-align: left;
+}
+.contacto-form label { display: block; margin-bottom: 5px; color: #fff; }
+.contacto-form input, .contacto-form textarea {
+width: 100%; padding: 12px; margin-bottom: 20px;
+border: none; border-radius: 4px;
+background: #333; color: #fff;
+}
+.contacto-form button {
+display: inline-block;
+padding: 12px 30px;
+background: #f1c40f; color: #000;
+border: none; font-size: 1.1rem;
+border-radius: 50px; cursor: pointer;
+transition: background 0.3s;
+}
+.contacto-form button:hover { background: #fff; }
+footer {
+background: #000;
+color: #777;
+padding: 40px 20px;
+text-align: center;
+}
+footer p { font-size: 0.9rem; margin-bottom: 5px; }
+
+/* --- ESTILOS PARA EL MODAL DEL CARRITO Y CHECKOUT --- */
+.modal {
+display: none; /* Por defecto oculto, lo controla React */
+position: fixed;
+z-index: 2000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.7); /* Fondo semi-transparente */
+}
+
+.modal-content {
+background-color: #1a1a1a; /* Fondo oscuro del modal */
+margin: 10% auto; /* Centra el modal verticalmente y horizontalmente */
+padding: 30px;
+border: 1px solid #444;
+width: 90%; /* Ancho responsivo */
+max-width: 500px; /* Ancho máximo como en la imagen */
+border-radius: 10px;
+position: relative;
+color: #fff;
+box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para profundidad */
+}
+
+.close-btn {
+color: #aaa;
+position: absolute;
+top: 15px;
+right: 25px;
+font-size: 28px; /* Para el emoji o un icono grande */
+font-weight: bold;
+cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+color: #f1c40f; /* Cambia de color al pasar el ratón */
+text-decoration: none;
+}
+
+.modal-content h2 {
+font-size: 1.8rem;
+margin-bottom: 25px;
+color: #f1c40f; /* Título amarillo */
+text-align: center; /* Centrar título */
+}
+
+#cart-items-container {
+margin-top: 20px;
+max-height: 250px; /* Altura máxima para el scroll si hay muchos items */
+overflow-y: auto; /* Scroll vertical */
+padding-right: 10px; /* Espacio para la barra de scroll */
+}
+
+.cart-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 0;
+border-bottom: 1px solid #333; /* Separador de items */
+}
+
+.cart-item:last-child {
+border-bottom: none; /* No hay borde en el último item */
+}
+
+.cart-item-details { flex-grow: 1; }
+.cart-item-details h4 { margin: 0; font-size: 1.1rem; color: #fff; }
+.cart-item-details p { margin: 5px 0 0 0; color: #ccc; font-size: 0.95rem; }
+
+.remove-item-btn {
+background: none; /* Fondo transparente */
+border: none;
+color: #ff4d4d; /* Color rojo para el icono de borrar */
+cursor: pointer;
+padding: 5px;
+border-radius: 50%;
+transition: background 0.2s, color 0.2s;
+display: flex; /* Para centrar el icono */
+align-items: center;
+justify-content: center;
+}
+.remove-item-btn:hover {
+background: rgba(255, 77, 77, 0.2); /* Fondo rojizo al pasar el ratón */
+color: #fff;
+}
+
+
+.cart-total {
+margin-top: 30px;
+padding-top: 15px;
+border-top: 1px solid #444; /* Separador antes del total */
+text-align: right;
+font-size: 1.6rem;
+font-weight: bold;
+color: #f1c40f; /* Total en amarillo */
+}
+
+#checkout-btn, #pay-btn, #back-to-cart-btn, #clear-cart-btn {
+display: block;
+width: 100%;
+padding: 15px;
+margin-top: 25px; /* Espacio antes del botón */
+border: none;
+border-radius: 8px; /* Bordes un poco menos redondeados */
+font-size: 1.2rem;
+font-weight: bold;
+cursor: pointer;
+transition: background 0.3s, color 0.3s;
+}
+
+#checkout-btn, #pay-btn {
+background: #f1c40f; /* Botón amarillo principal */
+color: #000;
+}
+
+#checkout-btn:hover, #pay-btn:hover { background: #fff; }
+
+#back-to-cart-btn {
+background: #555;
+color: #fff;
+margin-top: 10px;
+}
+#back-to-cart-btn:hover { background: #777; }
+
+#clear-cart-btn { /* Estilo para el botón de vaciar carrito */
+background: #dc3545; /* Rojo */
+color: #fff;
+margin-top: 10px;
+}
+#clear-cart-btn:hover { background: #c82333; }
+
+
+.empty-cart-message {
+text-align: center;
+color: #888;
+padding: 40px 0;
+font-size: 1.1rem;
+}
+
+/* ESTILOS PARA EL FORMULARIO DE CHECKOUT (No se muestran en este modal, pero los mantenemos) */
+.hidden { display: none; }
+
+#checkout-form .form-group { margin-bottom: 15px; }
+
+#checkout-form label {
+display: block;
+margin-bottom: 5px;
+color: #ccc;
+}
+
+#checkout-form input[type="text"],
+#checkout-form textarea {
+width: 100%;
+padding: 10px;
+background-color: #333;
+border: 1px solid #555;
+border-radius: 4px;
+color: #fff;
+font-size: 1rem;
+}
+
+#checkout-form .form-row {
+display: flex;
+gap: 15px;
+}
+
+#checkout-form .form-row .form-group {
+width: 100%;
+}
+
+#checkout-form .radio-group {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#checkout-form .radio-group label {
+margin-bottom: 0;
+font-weight: normal;
+}
+
+@media (max-width: 768px) {
+.hero-content h1 { font-size: 2.2rem; }
+.servicios-grid, .barberos-grid, .blog-grid, .productos-grid { flex-direction: column; align-items: center; }
+.servicio-item, .barbero-item, .blog-item, .producto-item { width: 90%; max-width: 350px; }
+
+.nav-container {
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+.nav-left { grid-row: 1; grid-column: 1; }
+.nav-right { grid-row: 1; grid-column: 2; justify-self: end; } /* Asegura alineación derecha */
+.nav-center {
+grid-row: 2;
+grid-column: 1 / span 2;
+justify-self: center;
+margin-top: 15px;
+}
+.nav-center ul {
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+}
+.nav-right ul { gap: 15px; }
+
+nav a.cart-icon { margin-top: 0; }
+
+.modal-content {
+margin: 5% auto; /* Más arriba en móviles */
+width: 95%;
+}
+}
+/* src/css/style.css */
+
+/* ... (Todo tu CSS anterior) ... */
+
+/* --- ESTILOS ADICIONALES PARA EL CHECKOUT FORM --- */
+
+#checkout-form {
+  margin-top: 20px; /* Espacio después del título del modal */
+}
+
+#checkout-form .form-group {
+  margin-bottom: 20px; /* Más espacio entre grupos */
+  text-align: left; /* Alinea labels a la izquierda */
+}
+
+#checkout-form label {
+  display: block;
+  margin-bottom: 8px; /* Espacio entre label e input */
+  color: #ccc;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+#checkout-form input[type="text"] { /* Aplica a todos los inputs de texto */
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 6px; /* Bordes ligeramente más redondeados */
+  color: #fff;
+  font-size: 1rem;
+}
+
+#checkout-form input[type="text"]:focus {
+  outline: none;
+  border-color: #f1c40f; /* Borde amarillo al enfocar */
+  box-shadow: 0 0 0 2px rgba(241, 196, 15, 0.3); /* Resplandor sutil */
+}
+
+/* Fila para Tarjeta + CVV */
+#checkout-form .form-row {
+  display: flex;
+  gap: 15px; /* Espacio entre tarjeta y CVV */
+  align-items: flex-end; /* Alinea los inputs si tienen diferente altura de label */
+}
+
+/* Asegura que el grupo CVV no sea demasiado ancho */
+#checkout-form .cvv-group {
+  flex-basis: 100px; /* Ancho base para CVV */
+  flex-grow: 0; /* No permite que crezca */
+}
+
+/* Grupo de Radio Buttons */
+#checkout-form .radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px; /* Espacio entre opciones de radio */
+  background-color: #2a2a2a; /* Fondo sutil para agrupar */
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+}
+
+#checkout-form .radio-group input[type="radio"] {
+  accent-color: #f1c40f; /* Color del círculo seleccionado */
+  width: auto; /* Ancho automático para radio */
+  margin-right: 5px; /* Pequeño espacio a la derecha */
+}
+
+#checkout-form .radio-group label {
+  margin-bottom: 0; /* Sin margen inferior en labels de radio */
+  font-weight: normal; /* Texto normal */
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* Botones (Pay y Back to Cart) */
+#pay-btn {
+  /* Ya tiene estilos generales, podemos añadir específicos si es necesario */
+}
+
+#back-to-cart-btn {
+  background: #555;
+  color: #fff;
+  margin-top: 10px; /* Espacio respecto al botón de pagar */
+}
+#back-to-cart-btn:hover { background: #777; }
+
+/* --- FIN ESTILOS CHECKOUT --- */
+/* src/css/style.css */
+
+/* ... (Todo tu CSS anterior) ... */
+
+/* --- ESTILOS ADICIONALES PARA EL CHECKOUT FORM --- */
+
+/* ... (Estilos de #checkout-form, .form-group, .form-row, etc. que ya tenías) ... */
+
+/* --- NUEVO ESTILO --- */
+/* Espacio extra arriba de los campos de envío */
+.shipping-address-fields {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #444; /* Línea separadora opcional */
+}
+/* --- FIN NUEVO ESTILO --- */
+
+/* ... (Estilos de los botones que ya tenías) ... */
