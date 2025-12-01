@@ -1,6 +1,6 @@
 // src/components/BlogSection.tsx
 import React from 'react';
-import { Link } from 'react-router-dom'; // <-- Asegúrate de importar Link
+import { Link } from 'react-router-dom'; // <-- importar Link
 
 // Importa tus imágenes
 import blogImg1 from '../assets/blog1.jpg';
